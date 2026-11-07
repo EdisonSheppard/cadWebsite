@@ -27,7 +27,7 @@
   "gstRegistered": false,
   "_gstRegistered": "Only set true once you are actually registered for GST. Changes the wording on the terms and how-it-works pages.",
 
-  "turnstileSiteKey": "",
+  "turnstileSiteKey": "0x4AAAAAAF3Owo9P0mXayZej",
   "_turnstileSiteKey": "Cloudflare Turnstile site key (public). Set together with the TURNSTILE_SECRET_KEY secret.",
 
   "printer": {
