@@ -16,6 +16,7 @@ const DETAIL_LABELS = {
   fulfilment: "Pickup or post",
   suburb: "Suburb",
   deadline: "Needed by",
+  source: "Found us via",
 };
 
 const ADMIN_HEADERS = {

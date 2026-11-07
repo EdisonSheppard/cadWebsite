@@ -39,6 +39,7 @@ function enquiry(overrides = {}, files = []) {
     submission_id: crypto.randomUUID(),
     started_at: String(Date.now() - 20000),
     terms_version: "test",
+    source: "google_maps",
     ...overrides,
   };
   for (const [k, v] of Object.entries(base)) {
@@ -111,6 +112,7 @@ check("CAD-only stored without material/quantity", cadHtml.includes("Files wante
 // Detail and files
 const detailHtml = await (await admin(`/admin/enquiry/${ref}`)).text();
 check("detail shows description", detailHtml.includes("cracked D-shaft"));
+check("detail shows how they found us", detailHtml.includes("Found us via") && detailHtml.includes("google_maps"));
 const fileIds = [...detailHtml.matchAll(/\/admin\/file\/([A-Z0-9]{10})/g)].map((m) => m[1]);
 check("detail lists 2 files", new Set(fileIds).size === 2, fileIds.join(","));
 const dl = await admin(`/admin/file/${fileIds.find((id) => detailHtml.includes(`/admin/file/${id}">knob.stl`)) || fileIds[0]}`);
