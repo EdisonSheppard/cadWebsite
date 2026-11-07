@@ -22,6 +22,7 @@ const CHOICES = {
   contact_pref: ["email", "phone", "sms"],
   environment: ["outdoor", "heat", "load", "flex", "safety"],
   deliverables: ["step", "stl", "drawing", "native"],
+  source: ["google_search", "google_maps", "facebook", "marketplace", "referral", "shop", "flyer", "other"],
 };
 const MATERIALS = ["recommend", ...site.materials.filter((m) => m.available).map((m) => m.id)];
 const TEXT_LIMITS = { fit: 3000, size: 120, colour: 60, suburb: 80 };
@@ -175,6 +176,10 @@ export async function handleEnquiry(request, env, ctx) {
       if (v) details[field] = v;
     }
   }
+
+  // Marketing source applies to every service
+  const source = String(form.get("source") || "");
+  if (CHOICES.source.includes(source)) details.source = source;
 
   // Files
   const files = form.getAll("files").filter((f) => f && typeof f === "object" && f.size > 0);

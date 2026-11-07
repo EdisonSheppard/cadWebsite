@@ -37,8 +37,8 @@
 
   "materials": [
     { "id": "pla", "label": "PLA", "available": true, "note": "Rigid, accurate, good for indoor parts. Softens in hot cars and direct summer sun." },
-    { "id": "petg", "label": "PETG", "available": false, "note": "Tougher and more heat and UV tolerant than PLA. Better for outdoor and light mechanical use." },
-    { "id": "tpu", "label": "TPU", "available": false, "note": "Flexible and rubbery. Feet, bumpers, gaskets and grips." }
+    { "id": "petg", "label": "PETG", "available": true, "note": "Tougher and more heat and UV tolerant than PLA. Better for outdoor and light mechanical use." },
+    { "id": "tpu", "label": "TPU", "available": true, "note": "Flexible and rubbery. Feet, bumpers, gaskets and grips." }
   ],
 
   "pricing": {
