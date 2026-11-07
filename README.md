@@ -1,35 +1,61 @@
-# Custom Parts & CAD — website starter
+# cadWebsite
 
-Public source repository for the Logan / Brisbane custom fabrication, 3D printing, and CAD website.
+Website and enquiry system for a small custom parts, 3D printing and CAD business in Logan, Queensland.
 
-> **Important:** This is a reconstructed **static frontend preview**, not an export of the original Work-hosted business app. The quote form only copies a draft to the clipboard. It does **not** send enquiries, upload files, or store customer information. There is no working administrator portal, customer login, database, approval flow, or backend in this repository.
+- **Public site**: plain HTML/CSS built from `src/site/` into `dist/`, served by Cloudflare Workers Static Assets.
+- **Quote form**: `POST /api/enquiry` validates the form, stores uploads in a private R2 bucket, saves the enquiry in D1, and emails you and the customer through Resend.
+- **Admin**: `/admin` (password protected) lists enquiries, shows photos and files, and tracks status, quote, approved drawing revision, payment and notes. CSV export for your records.
 
-## Preview locally
+Quotes, PDF drawing approval and payment are handled by email. See `docs/`.
 
-```bash
-cd site
-python3 -m http.server 8000
+## Layout
+
+```
+site.config.json        business details, prices, materials, upload limits (public, no secrets)
+src/site/layout.html    shared header and footer
+src/site/pages/*.html   one file per page
+src/site/static/        CSS, JS, font, favicon (served at /assets/)
+src/worker/             enquiry API and admin
+scripts/build.mjs       builds dist/ (runs automatically before deploy)
+scripts/smoke.mjs       end-to-end tests
+docs/                   drawing standard and email templates
 ```
 
-Visit `http://localhost:8000`.
+## Change something common
 
-## Files
+| To change | Edit |
+|---|---|
+| Business name, email, ABN, domain, prices | `site.config.json` |
+| Which materials are offered | `materials[].available` in `site.config.json` |
+| Page wording | `src/site/pages/<page>.html` |
+| Colours and type | variables at the top of `src/site/static/styles.css` |
 
-- `site/index.html` — responsive public marketing and example service pages, including adaptive quote-form preview.
-- `site/styles.css` — white/teal visual styling, layouts and responsive rules.
-- `site/app.js` — quote form preview logic. CAD-only enquiries never ask for print material.
-- `site/assets/mark.svg` — placeholder mark.
-- `BUSINESS_SITE_HANDOFF.md` — project scope, workflows, risks and a roadmap to a real backend.
-- `.gitignore` — common development and secret/data exclusions.
+## Run locally
 
-The starter uses no build tools or dependencies. For Cloudflare Pages, use `site` as the output directory.
+```bash
+npm install
+cp .dev.vars.example .dev.vars    # set ADMIN_PASSWORD
+npm run dev                        # http://localhost:8787, admin at /admin
+npm run smoke                      # in a second terminal
+```
 
-## Before going live
+Local D1 and R2 are simulated in `.wrangler/`. Nothing touches your live data.
 
-1. Export the original application source from the Work project if its working backend and administration features are to be preserved.
-2. Implement and test authenticated admin APIs, secure upload storage, ticket management, private model review, quote/revision approval and notifications.
-3. Add correct branding, business contact details, applicable terms/privacy details and real portfolio images.
-4. Verify availability before advertising PLA/PETG/TPU printing choices.
-5. Never commit customer names, emails, enquiry data, private 3D models, tokens, credentials, `.env`, or generated customer review URLs into this **public** repository.
+## Deploy
 
-The separate Work-hosted prototype is at https://parts-review-prototype.sheppardedison.chatgpt.site/ . It is not deployed from this repository.
+Pushing to `main` deploys through Cloudflare Workers Builds. The D1 database and R2 bucket in `wrangler.jsonc` are created automatically on the first deploy if they don't exist, and the tables are created on first use.
+
+Secrets are set in the Cloudflare dashboard (Worker > Settings > Variables and Secrets) or with `npx wrangler secret put NAME`:
+
+| Secret | Needed for |
+|---|---|
+| `ADMIN_PASSWORD` | `/admin` (at least 12 characters; admin stays disabled without it) |
+| `RESEND_API_KEY` | enquiry emails (also set `emailFrom` and `ownerNotifyEmail` in `site.config.json`) |
+| `TURNSTILE_SECRET_KEY` | spam check (also set `turnstileSiteKey`) |
+| `IP_SALT` | any random string, used to hash IPs for rate limiting |
+
+Test the live site with `BASE=https://your-domain ADMIN_PASSWORD=... npm run smoke`. It creates test enquiries named "Smoke Test" and deletes them afterwards.
+
+## Privacy
+
+This repository is public. Never commit `.dev.vars`, API keys, customer files, exported CSVs or real customer details. Customer files live only in the private R2 bucket and are served only through `/admin` after sign-in.

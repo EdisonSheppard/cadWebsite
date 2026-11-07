@@ -1,0 +1,24 @@
+{
+  "name": "cadwebsite",
+  "version": "1.0.0",
+  "description": "Website and enquiry system for a custom parts, 3D printing and CAD business",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdisonSheppard/cadwebsite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdisonSheppard/cadwebsite/issues"
+  },
+  "homepage": "https://github.com/EdisonSheppard/cadwebsite#readme",
+  "devDependencies": {
+    "wrangler": "^4.158.0"
+  },
+  "private": true,
+  "type": "module"
+}

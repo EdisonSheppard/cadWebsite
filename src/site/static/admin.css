@@ -1,0 +1,44 @@
+.admin { background: var(--paper); }
+.admin-bar { display: flex; gap: 1.5rem; padding: 0.9rem var(--gutter); background: var(--ink); }
+.admin-bar a { color: #fff; font-weight: 620; text-decoration: none; }
+.admin-bar a:hover { text-decoration: underline; }
+.admin-main { max-width: 80rem; margin: 0 auto; padding: 1.5rem var(--gutter) 4rem; }
+.admin-head { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; margin-bottom: 1rem; }
+.admin-head h1 { font-size: 1.8rem; margin: 0; }
+.admin-filter { display: flex; align-items: center; gap: 0.6rem; }
+.admin-filter label { margin: 0; }
+.admin-filter select { width: auto; }
+.table-scroll { overflow-x: auto; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.admin-table th, .admin-table td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+.admin-table th { font-weight: 620; color: var(--muted); }
+.admin-table tbody tr:hover { background: var(--blue-tint); }
+.empty { background: var(--sheet); border: 1px dashed var(--rule); padding: 2rem; border-radius: var(--radius); }
+.pill { display: inline-block; font-size: 0.82rem; font-weight: 640; padding: 0.15em 0.6em; border-radius: 99px; background: var(--rule); }
+.pill-new { background: var(--filament); }
+.pill-needs_info, .pill-drawing_sent { background: var(--blue-tint); color: var(--blue); }
+.pill-approved, .pill-printing, .pill-ready { background: #dff3e6; color: var(--ok); }
+.pill-declined, .pill-cancelled { background: var(--error-tint); color: var(--error); }
+.admin-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr); gap: 2rem; align-items: start; }
+.admin-grid > * { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+.admin-grid h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+.admin-grid h2:first-child { margin-top: 0; }
+@media (max-width: 56rem) { .admin-grid { grid-template-columns: 1fr; } }
+.pre { white-space: pre-wrap; background: var(--paper); padding: 1rem; border-radius: var(--radius); }
+.kv { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.kv th, .kv td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--rule); }
+.kv th { color: var(--muted); font-weight: 560; width: 40%; }
+.kv td { white-space: pre-wrap; word-break: break-word; }
+.files { list-style: none; padding: 0; }
+.files li { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.files img { display: block; max-width: 100%; max-height: 18rem; margin-bottom: 0.4rem; border: 1px solid var(--rule); }
+.events { list-style: none; padding: 0; font-size: 0.9rem; }
+.events li { padding: 0.25rem 0; }
+.muted { color: var(--muted); }
+.admin-form label { margin-top: 0.9rem; }
+.admin-form label.inline, .danger label.inline { display: flex; gap: 0.5rem; align-items: center; font-weight: 450; }
+.admin-form .btn { margin-top: 1rem; }
+.danger { margin-top: 2rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+.danger summary { cursor: pointer; color: var(--error); font-weight: 620; }
+.btn-danger { background: var(--error); color: #fff; border-color: var(--error); margin-top: 0.75rem; }
+.btn-danger:hover { background: #8f1c13; color: #fff; }

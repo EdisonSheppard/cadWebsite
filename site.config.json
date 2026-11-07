@@ -1,0 +1,59 @@
+{
+  "_readme": "Edit this file to change business details. It is used by the page build AND the Worker. Everything here is public (the repo is public) - never put secrets in it.",
+
+  "businessName": "Custom Parts & CAD",
+  "shortName": "Custom Parts & CAD",
+  "tagline": "Replacement plastic parts, custom mounts and CAD design in Logan and Brisbane",
+  "ownerFirstName": "Edison",
+
+  "siteUrl": "",
+  "_siteUrl": "Set to your live address with no trailing slash, e.g. https://yourname.com.au. Leave empty until the domain is live: canonical tags, sitemap URLs and structured data are only emitted when this is set.",
+
+  "contactEmail": "",
+  "_contactEmail": "Public address shown on the site and used as reply-to on customer emails, e.g. hello@yourname.com.au. Empty = no email shown, the quote form is the only contact route.",
+
+  "ownerNotifyEmail": "",
+  "_ownerNotifyEmail": "Where new-enquiry alerts go (can be your Gmail). Empty = no alert emails.",
+
+  "emailFrom": "",
+  "_emailFrom": "Sender for automated emails, on a domain verified with Resend, e.g. Custom Parts & CAD <quotes@yourname.com.au>. Empty = no emails are sent.",
+
+  "abn": "",
+  "_abn": "Shown in the footer once you have one, e.g. 12 345 678 901.",
+
+  "serviceArea": "Logan, Daisy Hill, Springwood, Shailer Park, Beenleigh and southside Brisbane",
+  "pickupNote": "Pickup by arrangement in the Daisy Hill area. Australia-wide postage available.",
+
+  "gstRegistered": false,
+  "_gstRegistered": "Only set true once you are actually registered for GST. Changes the wording on the terms and how-it-works pages.",
+
+  "turnstileSiteKey": "",
+  "_turnstileSiteKey": "Cloudflare Turnstile site key (public). Set together with the TURNSTILE_SECRET_KEY secret.",
+
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "buildMm": 180
+  },
+
+  "materials": [
+    { "id": "pla", "label": "PLA", "available": true, "note": "Rigid, accurate, good for indoor parts. Softens in hot cars and direct summer sun." },
+    { "id": "petg", "label": "PETG", "available": false, "note": "Tougher and more heat and UV tolerant than PLA. Better for outdoor and light mechanical use." },
+    { "id": "tpu", "label": "TPU", "available": false, "note": "Flexible and rubbery. Feet, bumpers, gaskets and grips." }
+  ],
+
+  "pricing": {
+    "printFromFile": "From $15",
+    "cadOnly": "From $40",
+    "replacementPart": "Usually $50 to $120",
+    "mountEnclosure": "Usually $50 to $180",
+    "designRate": "$40 per hour"
+  },
+
+  "upload": {
+    "maxFiles": 6,
+    "maxTotalMb": 25,
+    "extensions": ["jpg", "jpeg", "png", "webp", "heic", "heif", "pdf", "stl", "step", "stp", "3mf", "obj", "f3d", "f3z"]
+  },
+
+  "termsVersion": "2026-11-07"
+}

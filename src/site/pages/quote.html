@@ -1,0 +1,194 @@
+<!-- {"title": "Request a quote | Custom parts, 3D printing and CAD", "description": "Send photos, measurements or files for a quote on a replacement part, custom mount, 3D print or CAD design. Reply usually within one business day.", "path": "/quote"} -->
+<section class="page-head">
+  <div class="wrap">
+    <h1>Request a quote</h1>
+    <p class="lede">Tell me what you need and send whatever you have. A quote is free, and nothing is charged until you accept one.</p>
+  </div>
+</section>
+
+<section class="section section-form">
+  <div class="wrap form-wrap">
+    <form id="quote-form" class="quote-form" action="/api/enquiry" method="post" enctype="multipart/form-data" novalidate
+      data-max-files="{{ site.upload.maxFiles }}" data-max-mb="{{ site.upload.maxTotalMb }}" data-ext="{{ derived.acceptAttr }}">
+
+      <fieldset class="field-group">
+        <legend>What do you need?</legend>
+        <div class="choice-grid">
+          <label class="choice"><input type="radio" name="service" value="replacement" required><span><strong>Replacement part</strong><small>Recreate a broken or missing part</small></span></label>
+          <label class="choice"><input type="radio" name="service" value="mount"><span><strong>Mount or enclosure</strong><small>Custom bracket, holder, adapter or case</small></span></label>
+          <label class="choice"><input type="radio" name="service" value="print"><span><strong>Print my file</strong><small>I already have an STL, 3MF or STEP</small></span></label>
+          <label class="choice"><input type="radio" name="service" value="cad"><span><strong>CAD files only</strong><small>Design or modify a model, no printing</small></span></label>
+          <label class="choice"><input type="radio" name="service" value="unsure"><span><strong>Not sure yet</strong><small>Describe the problem and I'll suggest an approach</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>About the part</legend>
+        <div class="field">
+          <label for="f-description">What is it, and what does it need to do?</label>
+          <textarea id="f-description" name="description" rows="5" required minlength="10" maxlength="5000" aria-describedby="h-description"></textarea>
+          <p class="hint" id="h-description">For example: "Temperature knob for our wall oven. The D-shaped hole has cracked so it spins on the shaft."</p>
+        </div>
+
+        <div class="field" data-for="replacement mount cad unsure">
+          <label for="f-fit">What does it fit or attach to? Any measurements? <span class="opt">Optional</span></label>
+          <textarea id="f-fit" name="fit" rows="3" maxlength="3000" aria-describedby="h-fit"></textarea>
+          <p class="hint" id="h-fit">Shaft size, hole spacing, overall size, screw size. Rough is fine, and say if you're unsure.</p>
+        </div>
+
+        <div class="field" data-for="replacement mount">
+          <label for="f-sample">Can I have the original part or the thing it fits?</label>
+          <select id="f-sample" name="sample">
+            <option value="">Choose one</option>
+            <option value="yes">Yes, I can drop it off or post it</option>
+            <option value="maybe">Maybe, if it's needed</option>
+            <option value="no">No, photos and measurements only</option>
+          </select>
+        </div>
+
+        <div class="field-row" data-for="print cad">
+          <div class="field">
+            <label for="f-units">Units of your file</label>
+            <select id="f-units" name="units">
+              <option value="">Not sure</option>
+              <option value="mm">Millimetres</option>
+              <option value="in">Inches</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-size">Intended overall size <span class="opt">Optional</span></label>
+            <input id="f-size" name="size" type="text" maxlength="120" placeholder="e.g. about 80 × 40 × 25 mm">
+          </div>
+        </div>
+
+        <fieldset class="field check-group" data-for="cad">
+          <legend>Files you want back</legend>
+          <label><input type="checkbox" name="deliverables" value="step" checked> STEP</label>
+          <label><input type="checkbox" name="deliverables" value="stl"> STL or 3MF</label>
+          <label><input type="checkbox" name="deliverables" value="drawing"> PDF drawing</label>
+          <label><input type="checkbox" name="deliverables" value="native"> Fusion source file</label>
+        </fieldset>
+
+        <fieldset class="field check-group" data-for="replacement mount print unsure">
+          <legend>Where will it be used? <span class="opt">Tick any that apply</span></legend>
+          <label><input type="checkbox" name="environment" value="outdoor"> Outdoors or in direct sun</label>
+          <label><input type="checkbox" name="environment" value="heat"> Gets hot (car interior, near an oven or heater)</label>
+          <label><input type="checkbox" name="environment" value="load"> Holds weight or takes force</label>
+          <label><input type="checkbox" name="environment" value="flex"> Clips, snaps or flexes in use</label>
+          <label><input type="checkbox" name="environment" value="safety" data-warn="safety-note"> Failure could injure someone</label>
+          <p class="note" id="safety-note" hidden>Thanks for flagging this. Printed parts usually aren't suitable where failure could cause injury. Describe it anyway and I'll tell you honestly whether it can be done safely.</p>
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="field-group" data-for="replacement mount print">
+        <legend>Printing and delivery</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-quantity">Quantity</label>
+            <input id="f-quantity" name="quantity" type="number" inputmode="numeric" min="1" max="500" value="1">
+          </div>
+          <div class="field">
+            <label for="f-material">Material</label>
+            <select id="f-material" name="material">
+              <option value="recommend">Please recommend</option>
+              {{{ derived.materialOptions }}}
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-colour">Colour <span class="opt">Optional</span></label>
+            <input id="f-colour" name="colour" type="text" maxlength="60" placeholder="e.g. black">
+          </div>
+        </div>
+        <div class="field-row">
+          <fieldset class="field check-group">
+            <legend>Pickup or postage?</legend>
+            <label><input type="radio" name="fulfilment" value="pickup"> Pickup near Daisy Hill</label>
+            <label><input type="radio" name="fulfilment" value="post"> Post it to me</label>
+            <label><input type="radio" name="fulfilment" value="unsure" checked> Not sure yet</label>
+          </fieldset>
+          <div class="field">
+            <label for="f-suburb">Your suburb</label>
+            <input id="f-suburb" name="suburb" type="text" maxlength="80" autocomplete="address-level2">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Photos and files</legend>
+        <div class="field">
+          <label for="f-files">Add photos, sketches or model files <span class="opt">Optional</span></label>
+          <input id="f-files" name="files" type="file" multiple accept="{{ derived.acceptAttr }}" aria-describedby="h-files">
+          <p class="hint" id="h-files">Up to {{ site.upload.maxFiles }} files, {{ site.upload.maxTotalMb }} MB in total. Accepted types: {{ derived.extList }}. Put a ruler in photos so I can judge the scale.</p>
+          <ul class="file-list" id="file-list" aria-live="polite"></ul>
+        </div>
+        <div class="field">
+          <label for="f-deadline">Do you need it by a date? <span class="opt">Optional</span></label>
+          <input id="f-deadline" name="deadline" type="date">
+        </div>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Your details</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required maxlength="100" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required maxlength="200" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="opt">Optional</span></label>
+            <input id="f-phone" name="phone" type="tel" maxlength="30" autocomplete="tel">
+          </div>
+        </div>
+        <fieldset class="field check-group inline">
+          <legend>Best way to reach you</legend>
+          <label><input type="radio" name="contact_pref" value="email" checked> Email</label>
+          <label><input type="radio" name="contact_pref" value="phone"> Phone call</label>
+          <label><input type="radio" name="contact_pref" value="sms"> Text message</label>
+        </fieldset>
+      </fieldset>
+
+      <div class="hp" aria-hidden="true">
+        <label for="f-website">Leave this empty</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="submission_id" value="">
+      <input type="hidden" name="started_at" value="">
+      <input type="hidden" name="terms_version" value="{{ site.termsVersion }}">
+
+      <div class="field consent">
+        <label><input type="checkbox" name="consent" value="yes" required> <span>I agree to my details and files being used to prepare this quote, as described in the <a href="/privacy" target="_blank">privacy policy</a> and <a href="/terms" target="_blank">terms</a>.</span></label>
+      </div>
+
+      {{#if site.turnstileSiteKey}}<div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-size="flexible"></div>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{{/if}}
+
+      <div class="form-errors" id="form-errors" role="alert" tabindex="-1" hidden></div>
+
+      <p class="submit-row">
+        <button class="btn" type="submit" id="submit-btn">Send enquiry</button>
+        <span class="progress" id="progress" hidden></span>
+      </p>
+    </form>
+
+    <div class="form-done" id="form-done" hidden tabindex="-1">
+      <h2>Enquiry sent</h2>
+      <p>Your reference is <strong class="ref" id="done-ref"></strong>. I'll reply within one business day, usually sooner.</p>
+      <p id="done-email-note">A confirmation has been sent to your email. If you can't see it, check your spam folder.</p>
+      <p><a class="text-link" href="/">Back to the home page</a></p>
+    </div>
+
+    <aside class="form-aside">
+      <h2>Tips for a quick quote</h2>
+      <ul class="plain-list">
+        <li>Photograph the part from three sides, with a ruler beside it.</li>
+        <li>Measure anything that has to fit: shafts, holes, slots.</li>
+        <li>Say where it goes and what it does. A knob on a hot oven is a different job from a knob on a radio.</li>
+      </ul>
+      {{#if site.contactEmail}}<p>Prefer email? <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a></p>{{/if}}
+    </aside>
+  </div>
+</section>
