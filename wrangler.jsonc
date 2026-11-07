@@ -1,0 +1,8 @@
+{
+  "name": "cadwebsite",
+  "compatibility_date": "2026-11-07",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./site"
+  }
+}
