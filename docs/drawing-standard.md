@@ -8,7 +8,7 @@ Create a drawing template in Fusion (Drawing > From Design > save as template) w
 
 | Field | Example | Notes |
 |---|---|---|
-| Business name | Custom Parts & CAD | Match `businessName` in `site.config.json` |
+| Business name | PrintAndFit | Match `businessName` in `site.config.json` |
 | Ticket | Q-261107-9AVT | The enquiry reference from the website |
 | Part | Replacement control knob | Plain-English name the customer will recognise |
 | Revision | A | A, B, C... New letter for **any** change after a drawing has been sent |

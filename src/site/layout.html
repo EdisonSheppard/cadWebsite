@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page.title }}</title>
+<title>{{ page.fullTitle }}</title>
 <meta name="description" content="{{ page.description }}">
 {{#if page.noindex}}<meta name="robots" content="noindex">{{/if}}
 {{#if page.canonical}}<link rel="canonical" href="{{ page.canonical }}">
 <meta property="og:url" content="{{ page.canonical }}">{{/if}}
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ page.title }}">
+<meta property="og:title" content="{{ page.fullTitle }}">
+<meta property="og:site_name" content="{{ site.businessName }}">
 <meta property="og:description" content="{{ page.description }}">
 <meta property="og:locale" content="en_AU">
 <meta name="theme-color" content="#f4f7f9">

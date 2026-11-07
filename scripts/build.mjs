@@ -74,6 +74,7 @@ for (const file of readdirSync(join(src, "pages"))) {
   page.navHtml = nav
     .map(([href, label]) => `<li><a href="${href}"${href === page.path ? ' aria-current="page"' : ""}>${esc(label)}</a></li>`)
     .join("");
+  page.fullTitle = page.path === "/" ? `${site.businessName} | ${page.title}` : `${page.title} | ${site.businessName}`;
   page.canonical = site.siteUrl && !page.noindex ? `${site.siteUrl}${page.path === "/" ? "/" : page.path}` : "";
   page.jsonLd = page.path === "/" && site.siteUrl ? jsonLd() : "";
   page.content = render(raw.slice(m[0].length), ctx);

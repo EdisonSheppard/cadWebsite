@@ -1,8 +1,8 @@
 {
   "_readme": "Edit this file to change business details. It is used by the page build AND the Worker. Everything here is public (the repo is public) - never put secrets in it.",
 
-  "businessName": "Custom Parts & CAD",
-  "shortName": "Custom Parts & CAD",
+  "businessName": "PrintAndFit",
+  "shortName": "PrintAndFit",
   "tagline": "Replacement plastic parts, custom mounts and CAD design in Logan and Brisbane",
   "ownerFirstName": "Edison",
 
@@ -15,8 +15,8 @@
   "ownerNotifyEmail": "hello@printandfit.com.au",
   "_ownerNotifyEmail": "Where new-enquiry alerts go (can be your Gmail). Empty = no alert emails.",
 
-  "emailFrom": "Custom Parts & CAD <quotes@printandfit.com.au>",
-  "_emailFrom": "Sender for automated emails, on a domain verified with Resend, e.g. Custom Parts & CAD <quotes@yourname.com.au>. Empty = no emails are sent.",
+  "emailFrom": "PrintAndFit <quotes@printandfit.com.au>",
+  "_emailFrom": "Sender for automated emails, on a domain verified with Resend, e.g. PrintAndFit <quotes@printandfit.com.au>. Empty = no emails are sent.",
 
   "abn": "",
   "_abn": "Shown in the footer once you have one, e.g. 12 345 678 901.",
