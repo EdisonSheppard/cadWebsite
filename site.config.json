@@ -18,7 +18,7 @@
   "emailFrom": "PrintAndFit <quotes@printandfit.com.au>",
   "_emailFrom": "Sender for automated emails, on a domain verified with Resend, e.g. PrintAndFit <quotes@printandfit.com.au>. Empty = no emails are sent.",
 
-  "abn": "",
+  "abn": "21 875 258 126",
   "_abn": "Shown in the footer once you have one, e.g. 12 345 678 901.",
 
   "serviceArea": "Logan, Daisy Hill, Springwood, Shailer Park, Beenleigh and southside Brisbane",
