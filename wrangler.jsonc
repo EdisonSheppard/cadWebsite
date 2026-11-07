@@ -1,8 +1,34 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cadwebsite",
-  "compatibility_date": "2026-11-07",
+  "main": "src/worker/index.js",
+  "compatibility_date": "2026-10-01",
   "workers_dev": true,
+  "preview_urls": true,
+
+  // Builds dist/ from src/site before every deploy (local or Workers Builds).
+  "build": { "command": "node scripts/build.mjs" },
+
   "assets": {
-    "directory": "./site"
-  }
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    // Only these paths run Worker code. Everything else is served as static files.
+    "run_worker_first": ["/api/*", "/admin", "/admin/*"]
+  },
+
+  // Enquiry records. Wrangler creates this database on first deploy if it doesn't exist.
+  "d1_databases": [{ "binding": "DB", "database_name": "cadwebsite-enquiries" }],
+
+  // Private uploads. Never made public: files are only served through /admin after sign-in.
+  "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "cadwebsite-uploads" }],
+
+  "observability": { "enabled": true }
+
+  // Secrets (set with `npx wrangler secret put NAME` or in the dashboard, never in this file):
+  //   ADMIN_PASSWORD        required for /admin, at least 12 characters
+  //   RESEND_API_KEY        enables enquiry emails
+  //   TURNSTILE_SECRET_KEY  enables the spam check (also set turnstileSiteKey in site.config.json)
+  //   IP_SALT               any random string, used when hashing IPs for rate limiting
 }

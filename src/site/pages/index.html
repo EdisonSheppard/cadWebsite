@@ -1,0 +1,172 @@
+<!-- {"title": "Custom replacement parts, 3D printing and CAD design | Logan & Brisbane", "description": "Broken plastic part or need a custom mount? Send photos and measurements. You approve a dimensioned drawing before anything is printed. Daisy Hill, serving Logan and Brisbane.", "path": "/"} -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Broken plastic part? Get it drawn, checked and printed.</h1>
+      <p class="lede">Send a photo and a few measurements. I model the part, send you a dimensioned drawing to check, and only print once you've approved it.</p>
+      <p class="hero-actions">
+        <a class="btn" href="/quote">Get a quote</a>
+        <a class="btn btn-ghost" href="/how-it-works">How it works</a>
+      </p>
+      <p class="hero-note">Based in Daisy Hill. Pickup around Logan, or posted anywhere in Australia.</p>
+    </div>
+
+    <figure class="drawing" aria-labelledby="drawing-cap">
+      <svg viewBox="0 0 560 430" role="img" aria-labelledby="drawing-title drawing-desc">
+        <title id="drawing-title">Example approval drawing for a replacement control knob</title>
+        <desc id="drawing-desc">Front and side views of a knob, 42 mm across and 18 mm tall, with a 6 mm D-shaft hole marked as fit-critical. The title block shows revision A, first awaiting approval, then approved.</desc>
+        <rect class="d-sheet" x="6" y="6" width="548" height="418" rx="2"/>
+        <rect class="d-border" x="18" y="18" width="524" height="394"/>
+
+        <!-- front view -->
+        <g class="d-part">
+          <circle cx="150" cy="176" r="84"/>
+          <circle cx="150" cy="176" r="72" class="d-thin"/>
+          <path d="M150 104 V136" class="d-thick"/>
+          <path d="M138 176 a12 12 0 1 0 24 0 a12 12 0 0 0 -2.4 -7.2 h-19.2 a12 12 0 0 0 -2.4 7.2z"/>
+        </g>
+        <path class="d-centre" d="M54 176 H246 M150 80 V272"/>
+
+        <!-- side view -->
+        <g class="d-part">
+          <rect x="330" y="92" width="8" height="168"/>
+          <path d="M338 104 H366 Q370 104 370 108 V244 Q370 248 366 248 H338"/>
+        </g>
+        <path class="d-hidden" d="M330 164 H360 V188 H330"/>
+        <path class="d-centre" d="M318 176 H384"/>
+
+        <!-- dimensions -->
+        <g class="d-dim draw-in">
+          <path d="M66 172 V50 M234 172 V50 M66 58 H234"/>
+          <path class="d-arrow" d="M66 58 l9 -3.5 v7z M234 58 l-9 -3.5 v7z"/>
+          <path d="M330 264 V300 M370 252 V300 M330 292 H370"/>
+          <path class="d-arrow" d="M330 292 l9 -3.5 v7z M370 292 l-9 -3.5 v7z"/>
+          <path d="M374 104 H420 M374 248 H420 M412 104 V248"/>
+          <path class="d-arrow" d="M412 104 l-3.5 9 h7z M412 248 l-3.5 -9 h7z"/>
+          <path d="M144 187 L118 282"/>
+        </g>
+        <g class="d-text draw-in-text">
+          <text x="150" y="50" text-anchor="middle">Ø42.0</text>
+          <text x="350" y="318" text-anchor="middle">18.0</text>
+          <text x="430" y="181">Ø36.0</text>
+          <rect class="d-critical" x="30" y="282" width="182" height="42" rx="3"/>
+          <text x="40" y="299">Ø6.0 D-shaft</text>
+          <text x="40" y="316">4.6 across flat, slip fit</text>
+        </g>
+
+        <!-- title block -->
+        <g class="d-block">
+          <path d="M18 340 H542 M226 340 V412 M310 340 V412 M380 340 V412 M226 376 H380"/>
+          <text class="d-label" x="28" y="356">Part</text>
+          <text class="d-value" x="28" y="378">Replacement control knob</text>
+          <text class="d-label" x="28" y="400">Highlighted = fit-critical, please check</text>
+          <text class="d-label" x="236" y="354">Units</text>
+          <text class="d-value" x="236" y="370">mm</text>
+          <text class="d-label" x="236" y="390">Material</text>
+          <text class="d-value" x="236" y="406">PLA</text>
+          <text class="d-label" x="320" y="354">Scale</text>
+          <text class="d-value" x="320" y="370">2:1</text>
+          <text class="d-label" x="320" y="390">Rev</text>
+          <text class="d-value" x="320" y="406">A</text>
+          <text class="d-label" x="390" y="354">Status</text>
+          <g class="status-wait"><text class="d-value" x="390" y="386">Awaiting your approval</text></g>
+          <g class="status-ok"><rect class="d-stamp" x="388" y="364" width="144" height="32" rx="3"/><text class="d-value d-stamp-text" x="460" y="385" text-anchor="middle">Approved, Rev A</text></g>
+        </g>
+      </svg>
+      <figcaption id="drawing-cap">An example of the drawing you check and approve before anything is printed.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What I make</h2>
+    <p class="section-intro">Small plastic parts that are hard or impossible to buy. Every job is quoted individually after I've looked at what you need.</p>
+    <div class="service-list">
+      <a class="service-row" href="/replacement-parts">
+        <h3>Replacement plastic parts</h3>
+        <p>Knobs, caps, clips, covers, feet and brackets recreated from the broken original, photos or measurements.</p>
+        <p class="service-price">{{ site.pricing.replacementPart }}</p>
+      </a>
+      <a class="service-row" href="/mounts-enclosures">
+        <h3>Custom mounts and enclosures</h3>
+        <p>Brackets, holders, adapters and cases made to fit your equipment, including Raspberry Pi and ESP32 boards.</p>
+        <p class="service-price">{{ site.pricing.mountEnclosure }}</p>
+      </a>
+      <a class="service-row" href="/print-from-file">
+        <h3>3D printing from your file</h3>
+        <p>Already have an STL, 3MF or STEP file? I check it, confirm the scale and print it.</p>
+        <p class="service-price">{{ site.pricing.printFromFile }}</p>
+      </a>
+      <a class="service-row" href="/cad-design">
+        <h3>CAD design and modifications</h3>
+        <p>A model from your sketch, or changes to an existing one. You get STEP and STL files, no printing required.</p>
+        <p class="service-price">{{ site.pricing.cadOnly }}</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <h2>Nothing gets printed until you've checked it</h2>
+    <ol class="steps">
+      <li><h3>Send what you have</h3><p>Photos with a ruler in shot, rough measurements, the broken part, or a file. You don't need a 3D model.</p></li>
+      <li><h3>Get a fixed quote</h3><p>I tell you what's included, the material, how many fit tests and when it'll be ready. Nothing is charged until you accept.</p></li>
+      <li><h3>Check the drawing</h3><p>For design jobs you get a PDF drawing with the dimensions that matter. Ask for changes or approve that exact revision.</p></li>
+      <li><h3>Printed and checked</h3><p>The approved revision is printed and checked against the drawing, or against your sample if I have it.</p></li>
+      <li><h3>Pickup or post</h3><p>Collect in the Daisy Hill area or have it posted. CAD-only jobs are delivered as files.</p></li>
+    </ol>
+    <p><a class="text-link" href="/how-it-works">More about the process, payment and turnaround</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap fit-grid">
+    <div>
+      <h2>Good fits</h2>
+      <ul class="tick-list">
+        <li>Appliance and furniture knobs, caps and feet</li>
+        <li>Clips, covers, spacers and simple guides</li>
+        <li>Light-duty brackets and wall mounts</li>
+        <li>Electronics cases and sensor housings</li>
+        <li>Adapters between two things that don't quite fit</li>
+        <li>Prototypes and fit-test versions of your own design</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Not a fit</h2>
+      <ul class="cross-list">
+        <li>Anything safety-critical: brakes, child seats, climbing or lifting gear</li>
+        <li>Medical devices or parts that touch food</li>
+        <li>Parts that run hot, like engine bays or near heaters</li>
+        <li>Resin, metal or CNC-machined parts</li>
+        <li>3D scanning or custom circuit boards</li>
+      </ul>
+      <p class="small">Not sure? Ask anyway. I'll tell you honestly if a printed part is the wrong answer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap spec-grid">
+    <div>
+      <h2>Size and materials</h2>
+      <p>Parts are printed on a {{ site.printer.name }}. A single piece can be up to {{ site.printer.buildMm }} mm in each direction. Larger parts can sometimes be split and joined, which I'll suggest in the quote if it's sensible.</p>
+      <p>Prints have visible layer lines and normal support marks. They aren't injection-moulded and won't look identical to factory parts.</p>
+    </div>
+    <table class="spec-table">
+      <caption>Materials</caption>
+      <thead><tr><th scope="col">Material</th><th scope="col">Status</th><th scope="col">Good for</th></tr></thead>
+      <tbody>{{{ derived.materialTable }}}</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Have a part in mind?</h2>
+    <p>Photos and rough measurements are enough to start. I usually reply within one business day.</p>
+    <p><a class="btn" href="/quote">Get a quote</a></p>
+  </div>
+</section>
