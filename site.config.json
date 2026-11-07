@@ -6,16 +6,16 @@
   "tagline": "Replacement plastic parts, custom mounts and CAD design in Logan and Brisbane",
   "ownerFirstName": "Edison",
 
-  "siteUrl": "",
+  "siteUrl": "https://printandfit.com.au",
   "_siteUrl": "Set to your live address with no trailing slash, e.g. https://yourname.com.au. Leave empty until the domain is live: canonical tags, sitemap URLs and structured data are only emitted when this is set.",
 
-  "contactEmail": "",
+  "contactEmail": "hello@printandfit.com.au",
   "_contactEmail": "Public address shown on the site and used as reply-to on customer emails, e.g. hello@yourname.com.au. Empty = no email shown, the quote form is the only contact route.",
 
-  "ownerNotifyEmail": "",
+  "ownerNotifyEmail": "hello@printandfit.com.au",
   "_ownerNotifyEmail": "Where new-enquiry alerts go (can be your Gmail). Empty = no alert emails.",
 
-  "emailFrom": "",
+  "emailFrom": "Custom Parts & CAD <quotes@printandfit.com.au>",
   "_emailFrom": "Sender for automated emails, on a domain verified with Resend, e.g. Custom Parts & CAD <quotes@yourname.com.au>. Empty = no emails are sent.",
 
   "abn": "",
