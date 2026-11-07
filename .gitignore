@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.wrangler/
+.dist/
+dist/
+*.log
+uploads/
+customer-files/
+private/
+*.sqlite
+*.sqlite3
+.DS_Store
